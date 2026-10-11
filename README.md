@@ -1,4 +1,4 @@
-# TableCraft — Restaurant OS & Customer QR Dining App
+# SiOne — Restaurant OS & Customer QR Dining App
 
 A production-grade restaurant operating system featuring mobile-first table QR ordering, real-time kitchen kanban display, POS billing with WhatsApp invoice generation, recipe inventory auto-deduction, and customer loyalty rewards.
 
@@ -15,7 +15,7 @@ A production-grade restaurant operating system featuring mobile-first table QR o
 - **"While You Wait" Strip:** Highlights trending dishes ordered at nearby tables with 1-tap add-to-order capability.
 - **Loyalty Card & Stamps:** Points balance, Gold membership tier status with progress bar, and a 10-stamp digital card with celebratory reward redemption.
 - **Refer & Earn:** Unique invite link with a 1-tap WhatsApp sharing integration.
-- **Order History:** Recent 30-day itemized receipts with quick reorder, plus a locked older history archive demonstrating TableCraft Pro features.
+- **Order History:** Recent 30-day itemized receipts with quick reorder, plus a locked older history archive demonstrating SiOne Pro features.
 - **Anonymous Feedback:** 5-point emoji rating (`😍 😃 😐 🙁 😡`), tag selection, and direct feedback submission to management.
 - **Google Review Booster:** 5-star Google review prompt with copyable feedback templates.
 
@@ -93,7 +93,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser:
 ```text
 /*    /index.html   200
 ```
-5. Click **"Deploy TableCraft"**.
+5. Click **"Deploy SiOne"**.
 
 ---
 
