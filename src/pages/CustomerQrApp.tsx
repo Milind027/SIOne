@@ -52,7 +52,7 @@ export const CustomerQrApp: React.FC<CustomerQrAppProps> = ({ onBackToOwner, onO
   const [selectedCategory, setSelectedCategory] = useState<string>('All Items');
   const [searchQuery, setSearchQuery] = useState('');
   const [isVegOnly, setIsVegOnly] = useState(false);
-  const [isMobileFrame, setIsMobileFrame] = useState(false);
+  const [isMobileFrame, setIsMobileFrame] = useState(true);
 
   // Modals state
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -414,7 +414,7 @@ export const CustomerQrApp: React.FC<CustomerQrAppProps> = ({ onBackToOwner, onO
       {/* Frame wrapper if phone simulation mode is on */}
       {isMobileFrame ? (
         <div className="min-h-screen bg-[#f1f3f4] p-4 sm:p-8 flex items-center justify-center">
-          <div className="w-[410px] h-[860px] bg-white rounded-[44px] p-3 shadow-2xl border-4 border-[#202124] ring-1 ring-[#dadce0] relative overflow-hidden flex flex-col">
+          <div style={{ width: "min(410px, calc(100vw - 32px))", height: "min(860px, calc(100dvh - 104px))" }} className="bg-white rounded-[38px] sm:rounded-[44px] p-2.5 sm:p-3 shadow-2xl border-[5px] border-[#202124] ring-1 ring-[#dadce0] relative overflow-hidden flex flex-col">
             {/* Phone notch */}
             <div className="w-32 h-4 bg-[#202124] rounded-full mx-auto mb-2 shrink-0 flex items-center justify-center">
               <div className="w-3 h-3 rounded-full bg-neutral-700" />
