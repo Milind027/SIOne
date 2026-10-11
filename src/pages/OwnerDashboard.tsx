@@ -178,15 +178,15 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
           <p className="owner-nav-label">WORKSPACE</p>
           <nav className="owner-nav-list" aria-label="Restaurant workspace">
             <button className={"owner-nav-item " + (currentTab === "orders" ? "active" : "")} onClick={() => setCurrentTab("orders")}><LayoutDashboard /><span>Dashboard</span><i>⌘1</i></button>
-            <button className={"owner-nav-item " + (currentTab === "billing" ? "active" : "")} onClick={() => setCurrentTab("billing")}><Receipt /><span>POS Billing</span><i>⌘2</i></button>
+            <button className={"owner-nav-item " + (currentTab === "billing" ? "active" : "")} onClick={() => setCurrentTab("billing")} id="tour-billing"><Receipt /><span>POS Billing</span><i>⌘2</i></button>
             <button className="owner-nav-item" onClick={() => setCurrentTab("orders")}><Flame /><span>Live Orders</span><b className="owner-live-count">{activeOrdersCount}</b></button>
             <button className={"owner-nav-item " + (currentTab === "menu" ? "active" : "")} onClick={() => setCurrentTab("menu")}><BookOpen /><span>Menu Management</span></button>
-            <button className={"owner-nav-item " + (currentTab === "inventory" ? "active" : "")} onClick={() => setCurrentTab("inventory")}><Package /><span>Inventory</span></button>
+            <button className={"owner-nav-item " + (currentTab === "inventory" ? "active" : "")} onClick={() => setCurrentTab("inventory")} id="tour-inventory"><Package /><span>Inventory</span></button>
             <button className={"owner-nav-item " + (currentTab === "ledger" ? "active" : "")} onClick={() => setCurrentTab("ledger")}><CreditCard /><span>Purchases & Finance</span></button>
             <button className={"owner-nav-item " + (currentTab === "analytics" ? "active" : "")} onClick={() => setCurrentTab("analytics")}><BarChart3 /><span>Reports & Analytics</span></button>
             <button className={"owner-nav-item " + (currentTab === "marketing" ? "active" : "")} onClick={() => setCurrentTab("marketing")}><Megaphone /><span>Marketing & Loyalty</span></button>
             <button className={"owner-nav-item " + (currentTab === "crm" ? "active" : "")} onClick={() => setCurrentTab("crm")}><Users /><span>Customers / CRM</span></button>
-            <button className={"owner-nav-item " + (currentTab === "qr" ? "active" : "")} onClick={() => setCurrentTab("qr")}><QrCode /><span>Table QR Codes</span></button>
+            <button className={"owner-nav-item " + (currentTab === "qr" ? "active" : "")} onClick={() => setCurrentTab("qr")} id="tour-customer-qr"><QrCode /><span>Table QR Codes</span></button>
           </nav>
           <p className="owner-nav-label owner-nav-label-lower">OPERATIONS</p>
           <button className="owner-nav-item" onClick={() => setComingSoonTitle("Staff Management")}><Users /><span>Staff & Shifts</span><b className="owner-soon">PRO</b></button>
