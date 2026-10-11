@@ -170,8 +170,32 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
         </div>
       </header>
 
-      {/* Main Container */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-5 space-y-5">
+      {/* Desktop-first restaurant OS navigation */}
+      <div className="owner-workspace">
+        <aside className="owner-sidebar">
+          <div className="owner-sidebar-brand"><div className="owner-brand-mark">S</div><div><strong>SiOne</strong><span>RESTAURANT OS</span></div></div>
+          <div className="owner-outlet-chip"><span className="owner-status-dot" /> {outletName || "The Artisan Kitchen"} <span className="owner-chevron">⌄</span></div>
+          <p className="owner-nav-label">WORKSPACE</p>
+          <nav className="owner-nav-list" aria-label="Restaurant workspace">
+            <button className={"owner-nav-item " + (currentTab === "orders" ? "active" : "")} onClick={() => setCurrentTab("orders")}><LayoutDashboard /><span>Dashboard</span><i>⌘1</i></button>
+            <button className={"owner-nav-item " + (currentTab === "billing" ? "active" : "")} onClick={() => setCurrentTab("billing")}><Receipt /><span>POS Billing</span><i>⌘2</i></button>
+            <button className="owner-nav-item" onClick={() => setCurrentTab("orders")}><Flame /><span>Live Orders</span><b className="owner-live-count">{activeOrdersCount}</b></button>
+            <button className={"owner-nav-item " + (currentTab === "menu" ? "active" : "")} onClick={() => setCurrentTab("menu")}><BookOpen /><span>Menu Management</span></button>
+            <button className={"owner-nav-item " + (currentTab === "inventory" ? "active" : "")} onClick={() => setCurrentTab("inventory")}><Package /><span>Inventory</span></button>
+            <button className={"owner-nav-item " + (currentTab === "ledger" ? "active" : "")} onClick={() => setCurrentTab("ledger")}><CreditCard /><span>Purchases & Finance</span></button>
+            <button className={"owner-nav-item " + (currentTab === "analytics" ? "active" : "")} onClick={() => setCurrentTab("analytics")}><BarChart3 /><span>Reports & Analytics</span></button>
+            <button className={"owner-nav-item " + (currentTab === "marketing" ? "active" : "")} onClick={() => setCurrentTab("marketing")}><Megaphone /><span>Marketing & Loyalty</span></button>
+            <button className={"owner-nav-item " + (currentTab === "crm" ? "active" : "")} onClick={() => setCurrentTab("crm")}><Users /><span>Customers / CRM</span></button>
+            <button className={"owner-nav-item " + (currentTab === "qr" ? "active" : "")} onClick={() => setCurrentTab("qr")}><QrCode /><span>Table QR Codes</span></button>
+          </nav>
+          <p className="owner-nav-label owner-nav-label-lower">OPERATIONS</p>
+          <button className="owner-nav-item" onClick={() => setComingSoonTitle("Staff Management")}><Users /><span>Staff & Shifts</span><b className="owner-soon">PRO</b></button>
+          <button className="owner-nav-item" onClick={() => setComingSoonTitle("Restaurant Settings")}><Globe /><span>Settings</span></button>
+          <div className="owner-sidebar-bottom"><div className="owner-help-icon">✦</div><strong>Need a hand?</strong><p>Explore the guided tour to get the most out of SiOne.</p><button onClick={() => setComingSoonTitle("SiOne Help Centre")}>Open help centre <ExternalLink /></button></div>
+          <div className="owner-profile"><div className="owner-avatar">MP</div><div><strong>Restaurant Admin</strong><span>Owner access</span></div><span className="owner-profile-more">•••</span></div>
+        </aside>
+        <main className="owner-main flex-1 w-full px-4 sm:px-6 xl:px-8 py-6 space-y-5">
+          <div className="owner-page-heading"><div><p>OVERVIEW / RESTAURANT</p><h1>{currentTab === "orders" ? "Good evening, Admin" : ({billing:"POS Billing",menu:"Menu Management",inventory:"Inventory",ledger:"Purchases & Finance",analytics:"Reports & Analytics",marketing:"Marketing & Loyalty",crm:"Customers & CRM",qr:"Table QR Codes"} as Record<string,string>)[currentTab] || "Restaurant Operations"}</h1><span>Here’s what’s happening at your outlet today.</span></div><div className="owner-heading-date"><span className="owner-status-dot" /> Outlet is open <span className="owner-date-divider" /> <span>{new Date().toLocaleDateString("en-IN",{weekday:"short",day:"2-digit",month:"short",year:"numeric"})}</span></div></div>
         {/* Google Analytics / Search Console Minimal KPI Scorecard */}
         <div id="tour-dashboard" className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {/* Card 1: Today's Revenue */}
@@ -241,7 +265,7 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
         </div>
 
         {/* Google Analytics Style Navigation Tabs */}
-        <div className="flex items-center gap-1.5 border-b border-[#dadce0] pb-2 overflow-x-auto no-scrollbar">
+        <div className="hidden">
           <button
             onClick={() => setCurrentTab('orders')}
             className={`px-3.5 py-2 text-xs font-semibold rounded-lg whitespace-nowrap transition-colors flex items-center gap-1.5 ${
@@ -255,7 +279,7 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
           </button>
 
           <button
-            id="tour-billing"
+            id="tour-billing-legacy"
             onClick={() => setCurrentTab('billing')}
             className={`px-3.5 py-2 text-xs font-semibold rounded-lg whitespace-nowrap transition-colors flex items-center gap-1.5 ${
               currentTab === 'billing'
@@ -280,7 +304,7 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
           </button>
 
           <button
-            id="tour-inventory"
+            id="tour-inventory-legacy"
             onClick={() => setCurrentTab('inventory')}
             className={`px-3.5 py-2 text-xs font-semibold rounded-lg whitespace-nowrap transition-colors flex items-center gap-1.5 ${
               currentTab === 'inventory'
@@ -329,7 +353,7 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
           </button>
 
           <button
-            id="tour-customer-qr"
+            id="tour-customer-qr-legacy"
             onClick={() => setCurrentTab('qr')}
             className={`px-3.5 py-2 text-xs font-semibold rounded-lg whitespace-nowrap transition-colors flex items-center gap-1.5 ${
               currentTab === 'qr'
@@ -456,13 +480,17 @@ export const OwnerDashboard: React.FC<OwnerDashboardProps> = ({
         {/* Tab 7: Marketing & Loyalty */}
         {currentTab === 'marketing' && <MarketingView />}
 
+        {/* Customer relationship management */}
+        {currentTab === 'crm' && <CrmView />}
+
         {/* Tab 8: QR Table Stand Generator */}
         {currentTab === 'qr' && (
           <QrTableGeneratorView
             onOpenCustomerView={(tbl) => onOpenCustomerQr(tbl)}
           />
         )}
-      </main>
+        </main>
+      </div>
 
       {/* POS Billing Modal */}
       <BillingPosModal
