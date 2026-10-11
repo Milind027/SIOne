@@ -1,0 +1,6 @@
+{
+  "name": "TableCraft - Restaurant OS & Customer QR Dining",
+  "description": "Complete modern restaurant operating system featuring mobile QR table ordering, live kitchen sync, POS billing with WhatsApp invoices, inventory control, and loyalty rewards.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-en: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-hi: 'Mukta', 'Noto Sans Devanagari', -apple-system, sans-serif;
+  }
+
+  html[lang="hi"], body[data-lang="hi"], [data-lang="hi"] {
+    font-family: var(--font-hi);
+    letter-spacing: -0.01em;
+  }
+
+  html[lang="en"], body[data-lang="en"], [data-lang="en"] {
+    font-family: var(--font-en);
+    letter-spacing: normal;
+  }
+
+  body {
+    color: #202124;
+    background-color: #f8f9fa;
+  }
+}
+
+/* Devanagari typography polish for Hindi */
+[data-lang="hi"] h1, [data-lang="hi"] h2, [data-lang="hi"] h3, [data-lang="hi"] h4, [data-lang="hi"] h5, [data-lang="hi"] h6 {
+  font-family: 'Mukta', 'Noto Sans Devanagari', sans-serif !important;
+  letter-spacing: -0.015em;
+  line-height: 1.35;
+}
+
+[data-lang="hi"] button, [data-lang="hi"] input, [data-lang="hi"] select, [data-lang="hi"] textarea, [data-lang="hi"] p, [data-lang="hi"] span {
+  font-family: 'Mukta', 'Noto Sans Devanagari', sans-serif;
+}
+
+/* English typography polish */
+[data-lang="en"] h1, [data-lang="en"] h2, [data-lang="en"] h3, [data-lang="en"] h4, [data-lang="en"] h5, [data-lang="en"] h6 {
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif !important;
+  letter-spacing: -0.02em;
+}
+
+[data-lang="en"] button, [data-lang="en"] input, [data-lang="en"] select, [data-lang="en"] textarea, [data-lang="en"] p, [data-lang="en"] span {
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+}
+
+/* Google Search Console & Google Analytics minimal scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #dadce0;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #bdc1c6;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
